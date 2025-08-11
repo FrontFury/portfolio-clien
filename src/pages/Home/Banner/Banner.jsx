@@ -1,6 +1,7 @@
 import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-router-dom";
 import profileImg from "../../../../public/Profile.png"
+import resumeImg from "../../../../public/Resume_Of_Tasin.pdf"
 
 
 const Banner = () => {
@@ -49,14 +50,7 @@ const Banner = () => {
                   Learn More_
                 </button>
                 <button className="btn btn-sm lg:btn-md text-lg lg:text-xl border hover:bg-[#1f052bcd] border-[#6f139b] bg-[#1f052bcd] max-w-sm rounded font-bold text-white">
-                  <Link
-                    href={
-                      "https://drive.google.com/uc?export=download&id=1_tAZ9PaOpg5jXzP2IuTmDJfN-WLL3XUT"
-                    }
-                    download
-                  >
-                    Download Resume_
-                  </Link>
+                  <a href={resumeImg} download="Tasin_Resume.pdf">Download Resume_</a>
                 </button>
               </div>
             </div>
