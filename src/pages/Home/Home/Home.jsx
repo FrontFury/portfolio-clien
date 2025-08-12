@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import EduNexp from "../EduNexp/EduNexp";
 import MeetMe from "../MeetMe/MeetMe";
 import Skills from "../Skills/Skills";
 
@@ -8,6 +9,7 @@ const Home = () => {
             <Banner></Banner>
             <MeetMe></MeetMe>
             <Skills></Skills>
+            <EduNexp></EduNexp>
         </div>
     );
 };
