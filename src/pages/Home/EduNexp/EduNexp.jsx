@@ -28,7 +28,7 @@ const EduNexp = () => {
                   B.Sc (Hons.) in Computer Science & Engineering
                 </h3>
                 <h4 className="text-xl lg:text-2xl">
-                  <a href="https://www.diit.edu.bd/" target="_black">Daffodil Institute of IT</a>
+                  <a href="https://www.diit.edu.bd/" target="_black"><u>Daffodil Institute of IT</u></a>
                 </h4>
                 <p>
                   Mastering algorithms, data structures, software architecture, and computer systems. Building a strong foundation in both theory and practice while developing the skills to design creative, efficient solutions to complex computing challenges.
