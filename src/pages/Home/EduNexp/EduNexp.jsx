@@ -30,7 +30,7 @@ const EduNexp = () => {
                 <h4 className="text-xl lg:text-2xl">
                   <a href="https://www.diit.edu.bd/" target="_black"><u>Daffodil Institute of IT</u></a>
                 </h4>
-                <p>
+                <p className="text-justify">
                   Mastering algorithms, data structures, software architecture, and computer systems. Building a strong foundation in both theory and practice while developing the skills to design creative, efficient solutions to complex computing challenges.
                 </p>
                 <div className="absolute -top-4 -left-5 lg:-left-6 w-[40px] lg:w-[50px] bg-[#6f139b] p-2 rounded-full">
@@ -49,7 +49,7 @@ const EduNexp = () => {
                 <h4 className="text-xl lg:text-2xl">
                   Ideal Commerce College 
                 </h4>
-                <p>
+                <p className="text-justify">
                   I explored advanced subjects in physics, chemistry, biology, and mathematics, gaining a deep understanding of both theoretical principles and practical applications. This solid foundation equipped me for pursuing higher studies in diverse fields like engineering, medicine, and technology.
 
                 </p>
@@ -76,7 +76,7 @@ const EduNexp = () => {
                   <a href={"https://www.programming-hero.com/"}
                     target="_black">Programming Hero </a>
                 </h4>
-                <p>
+                <p className="text-justify">
                   I completed the Complete Web Development course from Programming Hero, gaining hands-on experience in HTML, CSS, JavaScript, React, Node.js, and MongoDB. The course covered both front-end and back-end development, along with real-world project building. This training strengthened my skills to create fully functional and responsive web applications.
                 </p>
                 {/* Open the modal using document.getElementById('ID').showModal() method */}

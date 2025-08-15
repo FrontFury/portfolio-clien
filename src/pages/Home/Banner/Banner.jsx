@@ -14,7 +14,7 @@ const Banner = () => {
         <div className="flex items-center h-screen px-3 lg:px-24 py-24">
           <div className="w-full flex flex-col lg:flex-row justify-center items-center h-full bg-[#0000005f] backdrop-blur-sm rounded-2xl p-3 lg:p-6">
             <div>
-              <img className="w-[1100px] mx-auto" src={profileImg} alt="" />
+              <img className="lg:w-[1400px] md:w-[400px] w-[250px] mx-auto" src={profileImg} alt="" />
             </div>
             <div className="space-y-4">
               <h2 className="text-2xl lg:text-5xl font-bold mb-0 text-white">Hello,</h2>
