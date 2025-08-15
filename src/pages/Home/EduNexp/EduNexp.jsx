@@ -74,7 +74,7 @@ const EduNexp = () => {
                 </h3>
                 <h4 className="text-xl lg:text-2xl underline">
                   <a href={"https://www.programming-hero.com/"}
-                    target="_black">Programming Hero</a>
+                    target="_black">Programming Hero </a>
                 </h4>
                 <p>
                   I completed the Complete Web Development course from Programming Hero, gaining hands-on experience in HTML, CSS, JavaScript, React, Node.js, and MongoDB. The course covered both front-end and back-end development, along with real-world project building. This training strengthened my skills to create fully functional and responsive web applications.

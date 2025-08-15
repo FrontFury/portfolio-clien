@@ -1,5 +1,5 @@
 import Banner from "../Banner/Banner";
-import DemoPort from "../DemoPort/DemoPort";
+import Contact from "../Contact/Contact";
 import EduNexp from "../EduNexp/EduNexp";
 import MeetMe from "../MeetMe/MeetMe";
 import Portfolio from "../Portfolio/Portfolio";
@@ -13,6 +13,9 @@ const Home = () => {
             <Skills></Skills>
             <EduNexp></EduNexp>
             <Portfolio></Portfolio>
+            <Contact></Contact>
+
+            
         </div>
     );
 };

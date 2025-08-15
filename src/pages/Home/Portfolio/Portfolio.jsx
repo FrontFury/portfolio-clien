@@ -7,11 +7,11 @@ const Portfolio = () => {
     <div className="bg-[#0b0113]">
       <div className="relative min-h-screen h-min-[40vh] p-6 lg:px-24 lg:pt-12">
         <div className="w-full absolute lg:pt-6 inset-0 opacity-5 ">
-          <h1 className="text-center text-6xl lg:text-8xl font-bold">
+          <h1 className="text-center text-6xl lg:text-8xl font-bold text-white">
             PORTFOLIO
           </h1>
         </div>
-        <h1 className="text-center text-5xl lg:text-6xl font-bold">
+        <h1 className="text-center text-5xl lg:text-6xl font-bold text-white">
           PORT<span className="text-[#70139b]">FOLIO</span>
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">
@@ -26,8 +26,8 @@ const Portfolio = () => {
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-[#0b0113b5] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end items-end text-center p-4 space-y-1 lg:space-y-3">
-                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded px-4 py-2 text-sm font-bold">
+                <div className="absolute inset-0 bg-[#0b0113b5] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end items-end text-center p-4 space-y-1 lg:space-y-[5px]">
+                  <button className="border border-[#6f139b] rounded-2xl bg-[#1f052bcd] text-white max-w-sm px-4 py-2 text-sm font-bold">
                     <a
                       href={
                         "https://riseup-foundation-a10.web.app/"
@@ -37,7 +37,7 @@ const Portfolio = () => {
                       Live Link
                     </a>
                   </button>
-                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded px-4 py-2 text-sm font-bold">
+                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm px-4 py-2 text-sm font-bold rounded-2xl ">
                     <a
                       href={
                         "https://github.com/FrontFury/riseup-foundation-client"
@@ -47,7 +47,7 @@ const Portfolio = () => {
                       View Code (client)
                     </a>
                   </button>
-                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded px-4 py-2 text-sm font-bold">
+                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm  rounded-2xl  px-4 py-2 text-sm font-bold">
                     <a
                       href={
                         "https://github.com/FrontFury/riseup-foundation-server"
@@ -114,8 +114,8 @@ const Portfolio = () => {
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-[#0b0113b5] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end items-end text-center p-4  space-y-1 lg:space-y-3">
-                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded px-4 py-2 text-sm font-bold">
+                <div className="absolute inset-0 bg-[#0b0113b5] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end items-end text-center p-4  space-y-1 lg:space-y-[5px]">
+                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded-2xl px-4 py-2 text-sm font-bold">
                     <a
                       href={
                         "https://race-tracker-marathon.web.app/"
@@ -125,7 +125,7 @@ const Portfolio = () => {
                       Live Link
                     </a>
                   </button>
-                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded px-4 py-2 text-sm font-bold">
+                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded-2xl px-4 py-2 text-sm font-bold">
                     <a
                       href={
                         "https://github.com/FrontFury/race-tracker-marathon-client"
@@ -135,7 +135,7 @@ const Portfolio = () => {
                       View Code (client)
                     </a>
                   </button>
-                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded px-4 py-2 text-sm font-bold">
+                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded-2xl px-4 py-2 text-sm font-bold">
                     <a
                       href={
                         "https://github.com/FrontFury/race-tracker-marathon-server"
@@ -204,8 +204,8 @@ const Portfolio = () => {
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-[#0b0113b5] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end items-end text-center p-4  space-y-1 lg:space-y-3">
-                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded px-4 py-2 text-sm font-bold">
+                <div className="absolute inset-0 bg-[#0b0113b5] opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end items-end text-center p-4  space-y-1 lg:space-y-[5px]">
+                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded-2xl px-4 py-2 text-sm font-bold">
                     <a
                       href={
                         "https://frontfury.github.io/rinterio-design/"
@@ -215,7 +215,7 @@ const Portfolio = () => {
                       Live Link
                     </a>
                   </button>
-                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded px-4 py-2 text-sm font-bold">
+                  <button className="border border-[#6f139b] bg-[#1f052bcd] text-white max-w-sm rounded-2xl px-4 py-2 text-sm font-bold">
                     <a
                       href={
                         "https://github.com/FrontFury/rinterio-design"
