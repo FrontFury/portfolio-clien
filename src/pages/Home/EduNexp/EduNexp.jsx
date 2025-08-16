@@ -3,7 +3,7 @@ import certificateImg from '../../../../public/certificate.jpg'
 
 const EduNexp = () => {
   return (
-    <div className="bg-[#0b0113] text-white">
+    <div id="eduEx" className="bg-[#0b0113] text-white">
       <div className="relative p-6 lg:px-24 lg:py-12">
         <div className="w-full absolute pt-4 lg:pt-6 inset-0 opacity-5 ">
           <h1 className="text-center text-5xl lg:text-8xl font-bold">

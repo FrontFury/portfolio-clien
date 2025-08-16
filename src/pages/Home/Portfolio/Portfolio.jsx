@@ -4,7 +4,7 @@ import portfolio6 from "../../../../public/Project6.png";
 
 const Portfolio = () => {
   return (
-    <div className="bg-[#0b0113]">
+    <div id="portfolio" className="bg-[#0b0113]">
       <div className="relative min-h-screen h-min-[40vh] p-6 lg:px-24 lg:pt-12">
         <div className="w-full absolute lg:pt-6 inset-0 opacity-5 ">
           <h1 className="text-center text-6xl lg:text-8xl font-bold text-white">

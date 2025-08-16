@@ -68,7 +68,7 @@ const Contact = () => {
 
   return (
     <div>
-      <div className="p-6 lg:p-24 bg-[#0b0113] w-full">
+      <div id="letsConnect" className="p-6 lg:p-24 bg-[#0b0113] w-full">
         {/* Heading */}
         <div className="relative lg:px-24 lg:py-12">
           <div className="w-full absolute lg:pt-6 inset-0 opacity-5 ">

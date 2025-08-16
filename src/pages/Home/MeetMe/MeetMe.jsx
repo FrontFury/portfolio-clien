@@ -2,7 +2,7 @@
 
 const MeetMe = () => {
     return (
-        <div className="relative p-6 bg-[#0b0113] lg:px-24 lg:py-12">
+        <div id="about" className="relative p-6 bg-[#0b0113] lg:px-24 lg:py-12">
       <div className="w-full absolute pt-6 inset-0 opacity-5 ">
         <h1 className="text-center text-white text-5xl lg:text-8xl font-bold">MEET ME</h1>
       </div>

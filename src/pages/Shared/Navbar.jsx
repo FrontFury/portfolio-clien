@@ -46,7 +46,7 @@ const Navbar = () => {
       </li>
       <li className="text-white">
         <ScrollLink
-          to="eduExp"
+          to="eduEx"
           smooth={true}
           duration={500}
           className="text-lg cursor-pointer"
@@ -66,7 +66,7 @@ const Navbar = () => {
       </li>
       <li className="text-white">
         <ScrollLink
-          to="reachOut"
+          to="letsConnect"
           smooth={true}
           duration={500}
           className="text-lg cursor-pointer"

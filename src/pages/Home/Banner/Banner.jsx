@@ -6,7 +6,7 @@ import resumeImg from "../../../../public/Resume_Of_Tasin.pdf"
 
 const Banner = () => {
     return (
-         <div
+         <div id="home"
       style={{ backgroundImage: `url("/banner.gif")` }}
       className="w-full h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
     >

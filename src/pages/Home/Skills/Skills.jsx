@@ -3,7 +3,7 @@ import skillsIcon from '../../../../public/Skills.gif'
 const Skills = () => {
   return (
     <div>
-      <div className="relative bg-[#0b0113] p-6 lg:px-24 lg:pt-12">
+      <div id='skills' className="relative bg-[#0b0113] p-6 lg:px-24 lg:pt-12">
         <div className="w-full absolute pt-2 lg:pt-6 inset-0 opacity-5 ">
           <h1 className="text-center text-6xl lg:text-8xl text-white font-bold">
             SKILLS & EXPERTISE
