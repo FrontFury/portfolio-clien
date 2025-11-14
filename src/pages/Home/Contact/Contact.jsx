@@ -26,13 +26,15 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+
     const day = String(new Date().getDate()).padStart(2, "0");
     const month = String(new Date().getMonth() + 1).padStart(2, "0");
     const year = new Date().getFullYear();
 
-    const serviceId = import.meta.env.VITE_serviceId;
-    const templateId = import.meta.env.VITE_templateId;
-    const publicKey = import.meta.env.VITE_publicKey;
+   
+    const serviceId = import.meta.env.VITE_SERVICE_ID ;
+    const templateId = import.meta.env.VITE_TEMPLATE_ID ;
+    const publicKey = import.meta.env.VITE_PUBLIC_KEY ;
 
     const templateParams = {
       name: formData.name,
@@ -40,24 +42,30 @@ const Contact = () => {
       subject: formData.subject,
       to: "Tasin",
       message: formData.message,
-      year: year,
-      month: month,
-      day: day,
-      time: time,
+      year,
+      month,
+      day,
+      time,
     };
+
+    emailjs.init(publicKey);
 
     emailjs.send(serviceId, templateId, templateParams, publicKey).then(
       () => {
-        console.log("SUCCESS!");
         Swal.fire({
           title: "Message Sent!",
-          text: "Your message is successfully sent to Estiak Ahamed Tasin. He will reply soon!",
+          text: "Your message has been sent successfully. I will reply soon!",
           icon: "success",
         });
         setFormData({ name: "", email: "", subject: "", message: "" });
       },
       (error) => {
-        console.log("FAILED...", error);
+        console.error("FAILED...", error);
+        Swal.fire({
+          title: "Error!",
+          text: "Failed to send message. Please try again later.",
+          icon: "error",
+        });
       }
     );
   };
@@ -163,9 +171,9 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={!isFormValid}
-                  className={`btn  border-[#6f139b] hover:bg-[#70139b] hover:border-[1px] hover:border-gray-500  rounded-lg px-4 py-2 font-bold w-full bg-clr-main text-white ${
+                  className={`btn border-[#6f139b] hover:bg-[#70139b] hover:border-[1px] hover:border-gray-500 rounded-lg px-4 py-2 font-bold w-full text-white ${
                     !isFormValid
-                      ? "opacity-50 cursor-not-allowed"
+                      ? "opacity-50 cursor-not-allowed bg-gray-600"
                       : "bg-[#1f052bcd]"
                   }`}
                 >
