@@ -1,4 +1,4 @@
-import Banner from "../Banner/Banner";
+import Banner from "../HomePage/HomePage";
 import Contact from "../Contact/Contact";
 import EduNexp from "../EduNexp/EduNexp";
 import MeetMe from "../MeetMe/MeetMe";
