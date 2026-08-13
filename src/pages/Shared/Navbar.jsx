@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { GiJourney } from "react-icons/gi";
 import {
   Home,
   User,
@@ -43,10 +44,10 @@ const Navbar = () => {
       path: "/services",
     },
     {
-      id: "skills",
-      label: "Skills",
-      icon: Code,
-      path: "/skills",
+      id: "Journey",
+      label: "Journey",
+      icon: GiJourney,
+      path: "/journey",
     },
     {
       id: "portfolio",

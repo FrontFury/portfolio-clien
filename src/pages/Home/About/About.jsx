@@ -14,8 +14,6 @@ import {
   FaGithub,
   FaCode,
   FaAndroid,
-  FaJava,
-  FaDatabase,
 } from "react-icons/fa";
 
 import {
@@ -26,8 +24,6 @@ import {
   SiPostgresql,
   SiMongodb,
   SiPrisma,
-  SiWordpress,
-  SiShopify,
   SiFramer,
   SiKotlin,
   SiFirebase,
@@ -219,8 +215,8 @@ const About = () => {
       },
       {
         name: "Android Studio",
-        icon: SiFramer,
-        color: "text-blue-500",
+        icon: SiAndroidstudio,
+        color: "text-green-400",
       },
       {
         name: "Framer",
@@ -346,7 +342,7 @@ const About = () => {
       "
     >
       {/* =====================================================
-          BACKGROUND EFFECTS
+          BACKGROUND EFFECTS & GLASSORPHISM LIGHTING
       ====================================================== */}
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -364,7 +360,7 @@ const About = () => {
             sm:h-[500px]
             lg:h-[700px]
             rounded-full
-            bg-amber-600/[0.06]
+            bg-amber-600/[0.12]
             blur-[120px]
           "
         />
@@ -385,10 +381,10 @@ const About = () => {
             absolute
             top-[35%]
             left-[10%]
-            w-32
-            h-32
+            w-48
+            h-48
             rounded-full
-            bg-yellow-500/[0.04]
+            bg-amber-500/[0.08]
             blur-3xl
           "
         />
@@ -408,10 +404,10 @@ const About = () => {
             absolute
             bottom-[10%]
             right-[10%]
-            w-40
-            h-40
+            w-56
+            h-56
             rounded-full
-            bg-amber-400/[0.04]
+            bg-yellow-500/[0.08]
             blur-3xl
           "
         />
@@ -422,7 +418,6 @@ const About = () => {
       ====================================================== */}
 
       <div className="relative z-10 max-w-7xl mx-auto">
-
         {/* ===================================================
             HEADER
         ==================================================== */}
@@ -496,14 +491,14 @@ const About = () => {
               leading-relaxed
             "
           >
-            A passionate developer focused on building modern,
-            scalable and visually engaging digital experiences
-            across Web and Android platforms.
+            A passionate developer focused on building modern, scalable and
+            visually engaging digital experiences across Web and Android
+            platforms.
           </p>
         </motion.div>
 
         {/* ===================================================
-            TOP INFORMATION GRID
+            TOP INFORMATION GRID (GLASS CARDS)
         ==================================================== */}
 
         <motion.div
@@ -522,7 +517,6 @@ const About = () => {
             mb-8
           "
         >
-
           {/* Career Objective */}
 
           <motion.div
@@ -536,14 +530,16 @@ const About = () => {
               overflow-hidden
               rounded-3xl
               border
-              border-stone-800
-              bg-[#101010]
+              border-white/[0.08]
+              bg-[#101010]/60
+              backdrop-blur-xl
               p-6
               sm:p-8
-              shadow-2xl
+              shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]
               transition-all
               duration-300
               hover:border-amber-500/40
+              hover:bg-[#101010]/80
             "
           >
             {/* Gold Line */}
@@ -572,15 +568,13 @@ const About = () => {
                 w-40
                 h-40
                 rounded-full
-                bg-amber-500/[0.06]
+                bg-amber-500/[0.08]
                 blur-3xl
               "
             />
 
             <div className="relative z-10">
-
               <div className="flex items-center gap-3 mb-5">
-
                 <div
                   className="
                     w-10
@@ -589,6 +583,7 @@ const About = () => {
                     border
                     border-amber-500/30
                     bg-amber-500/10
+                    backdrop-blur-md
                     flex
                     items-center
                     justify-center
@@ -623,7 +618,6 @@ const About = () => {
                     Career Objective
                   </h3>
                 </div>
-
               </div>
 
               <p
@@ -634,12 +628,11 @@ const About = () => {
                   text-stone-300
                 "
               >
-                I am a quick learner and highly adaptable
-                professional, always eager to embrace new challenges
-                and acquire knowledge. With a strong foundation in
-                front-end development, I have crafted visually
-                appealing and intuitive web applications that
-                highlight my technical expertise.
+                I am a quick learner and highly adaptable professional, always
+                eager to embrace new challenges and acquire knowledge. With a
+                strong foundation in front-end development, I have crafted
+                visually appealing and intuitive web applications that highlight
+                my technical expertise.
               </p>
 
               <p
@@ -652,12 +645,10 @@ const About = () => {
                 "
               >
                 My passion extends to both front-end and full-stack
-                development as I continue to deepen my backend
-                knowledge and explore modern development technologies
-                to build efficient, scalable and meaningful digital
-                products.
+                development as I continue to deepen my backend knowledge and
+                explore modern development technologies to build efficient,
+                scalable and meaningful digital products.
               </p>
-
             </div>
           </motion.div>
 
@@ -672,19 +663,19 @@ const About = () => {
               lg:col-span-5
               rounded-3xl
               border
-              border-stone-800
-              bg-[#101010]
+              border-white/[0.08]
+              bg-[#101010]/60
+              backdrop-blur-xl
               p-6
               sm:p-8
-              shadow-2xl
+              shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]
               hover:border-amber-500/40
+              hover:bg-[#101010]/80
               transition-all
               duration-300
             "
           >
-
             <div className="flex items-center justify-between mb-7">
-
               <h3
                 className="
                   text-xl
@@ -705,13 +696,10 @@ const About = () => {
                   shadow-[0_0_12px_rgba(52,211,153,0.8)]
                 "
               />
-
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-
               {personalInfo.map((info, index) => {
-
                 const Icon = info.icon;
 
                 return (
@@ -722,16 +710,16 @@ const About = () => {
                     }}
                     className="flex items-start gap-3"
                   >
-
                     <div
                       className="
                         w-10
                         h-10
                         shrink-0
                         rounded-xl
-                        bg-stone-900
+                        bg-white/[0.03]
+                        backdrop-blur-md
                         border
-                        border-stone-800
+                        border-white/[0.08]
                         flex
                         items-center
                         justify-center
@@ -742,7 +730,6 @@ const About = () => {
                     </div>
 
                     <div className="min-w-0">
-
                       <span
                         className="
                           block
@@ -769,19 +756,16 @@ const About = () => {
                       >
                         {info.value}
                       </span>
-
                     </div>
-
                   </motion.div>
                 );
               })}
-
             </div>
           </motion.div>
         </motion.div>
 
         {/* ===================================================
-            FOCUS
+            FOCUS AREAS (GLASS PILLS)
         ==================================================== */}
 
         <motion.div
@@ -802,18 +786,19 @@ const About = () => {
           className="
             rounded-3xl
             border
-            border-stone-800
-            bg-[#101010]
+            border-white/[0.08]
+            bg-[#101010]/60
+            backdrop-blur-xl
             p-6
             sm:p-8
             mb-10
+            shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]
             hover:border-amber-500/30
+            hover:bg-[#101010]/80
             transition-all
           "
         >
-
           <div className="flex items-center gap-3 mb-5">
-
             <div
               className="
                 h-8
@@ -833,13 +818,10 @@ const About = () => {
             >
               Areas of Focus
             </h3>
-
           </div>
 
           <div className="flex flex-wrap gap-2.5">
-
             {focusAreas.map((area, index) => (
-
               <motion.span
                 key={index}
                 whileHover={{
@@ -851,29 +833,29 @@ const About = () => {
                   py-2
                   rounded-xl
                   border
-                  border-stone-800
-                  bg-stone-900/70
+                  border-white/[0.08]
+                  bg-white/[0.03]
+                  backdrop-blur-md
                   text-xs
                   sm:text-sm
                   font-medium
                   text-stone-300
                   hover:text-amber-300
                   hover:border-amber-500/40
-                  hover:bg-amber-500/[0.06]
+                  hover:bg-amber-500/10
                   transition-all
                   cursor-default
+                  shadow-sm
                 "
               >
                 {area}
               </motion.span>
-
             ))}
-
           </div>
         </motion.div>
 
         {/* ===================================================
-            TECHNOLOGY SECTION
+            TECHNOLOGY SECTION (GLASS CONTAINER)
         ==================================================== */}
 
         <motion.div
@@ -896,14 +878,15 @@ const About = () => {
             overflow-hidden
             rounded-[2rem]
             border
-            border-stone-800
-            bg-[#090909]
+            border-white/[0.08]
+            bg-[#090909]/70
+            backdrop-blur-2xl
+            shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]
             p-5
             sm:p-8
             lg:p-10
           "
         >
-
           {/* Background Grid */}
 
           <div
@@ -920,7 +903,6 @@ const About = () => {
           {/* Section Heading */}
 
           <div className="relative z-10 text-center mb-8">
-
             <span
               className="
                 inline-flex
@@ -930,8 +912,9 @@ const About = () => {
                 py-1
                 rounded-full
                 border
-                border-amber-500/20
-                bg-amber-500/[0.06]
+                border-amber-500/30
+                bg-amber-500/10
+                backdrop-blur-md
                 text-[10px]
                 sm:text-xs
                 uppercase
@@ -974,19 +957,18 @@ const About = () => {
                 mt-3
                 text-xs
                 sm:text-sm
-                text-stone-500
+                text-stone-400
                 max-w-xl
                 mx-auto
               "
             >
-              Technologies and tools I use to transform ideas into
-              modern, scalable and production-ready applications.
+              Technologies and tools I use to transform ideas into modern,
+              scalable and production-ready applications.
             </p>
-
           </div>
 
           {/* =================================================
-              CATEGORY TABS
+              CATEGORY TABS (GLASS BUTTONS)
           ================================================== */}
 
           <div
@@ -1001,9 +983,7 @@ const About = () => {
               mb-10
             "
           >
-
             {categories.map((category) => {
-
               const isActive = activeCategory === category;
 
               return (
@@ -1025,10 +1005,11 @@ const About = () => {
                     transition-all
                     duration-300
                     border
+                    backdrop-blur-md
                     ${
                       isActive
-                        ? "text-black border-amber-300 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 shadow-[0_0_25px_rgba(245,158,11,0.25)]"
-                        : "text-stone-400 border-stone-800 bg-stone-950 hover:text-amber-300 hover:border-amber-500/30"
+                        ? "text-black border-amber-300 bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 shadow-[0_0_25px_rgba(245,158,11,0.35)]"
+                        : "text-stone-400 border-white/[0.08] bg-white/[0.03] hover:text-amber-300 hover:border-amber-500/30 hover:bg-amber-500/10"
                     }
                   `}
                 >
@@ -1036,15 +1017,13 @@ const About = () => {
                 </motion.button>
               );
             })}
-
           </div>
 
           {/* =================================================
-              TECHNOLOGY CARDS
+              TECHNOLOGY CARDS (GLASS SPHERES)
           ================================================== */}
 
           <AnimatePresence mode="wait">
-
             <motion.div
               key={activeCategory}
               initial={{
@@ -1073,139 +1052,132 @@ const About = () => {
                 gap-y-8
               "
             >
+              {technologyCategories[activeCategory].map((tech, index) => {
+                const Icon = tech.icon;
 
-              {technologyCategories[activeCategory].map(
-                (tech, index) => {
+                return (
+                  <motion.div
+                    key={tech.name}
+                    initial={{
+                      opacity: 0,
+                      scale: 0.7,
+                      y: 20,
+                    }}
+                    animate={{
+                      opacity: 1,
+                      scale: 1,
+                      y: 0,
+                    }}
+                    transition={{
+                      delay: index * 0.06,
+                      type: "spring",
+                      stiffness: 150,
+                      damping: 14,
+                    }}
+                    whileHover={{
+                      y: -8,
+                    }}
+                    className="
+                      group
+                      flex
+                      flex-col
+                      items-center
+                      w-[85px]
+                      sm:w-[100px]
+                      cursor-pointer
+                    "
+                  >
+                    {/* Icon Circle */}
 
-                  const Icon = tech.icon;
-
-                  return (
-                    <motion.div
-                      key={tech.name}
-                      initial={{
-                        opacity: 0,
-                        scale: 0.7,
-                        y: 20,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        scale: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        delay: index * 0.06,
-                        type: "spring",
-                        stiffness: 150,
-                        damping: 14,
-                      }}
-                      whileHover={{
-                        y: -8,
-                      }}
+                    <div
                       className="
-                        group
+                        relative
+                        w-[74px]
+                        h-[74px]
+                        sm:w-[84px]
+                        sm:h-[84px]
+                        rounded-full
                         flex
-                        flex-col
                         items-center
-                        w-[85px]
-                        sm:w-[100px]
-                        cursor-pointer
+                        justify-center
+                        bg-white/[0.03]
+                        backdrop-blur-md
+                        border
+                        border-white/[0.1]
+                        shadow-[0_4px_20px_rgba(0,0,0,0.3)]
+                        transition-all
+                        duration-500
+                        group-hover:border-amber-400/80
+                        group-hover:bg-amber-500/10
+                        group-hover:shadow-[0_0_30px_rgba(245,158,11,0.25)]
                       "
                     >
-
-                      {/* Icon Circle */}
+                      {/* Outer Gold Ring */}
 
                       <div
                         className="
-                          relative
-                          w-[74px]
-                          h-[74px]
-                          sm:w-[84px]
-                          sm:h-[84px]
+                          absolute
+                          inset-[-5px]
                           rounded-full
-                          flex
-                          items-center
-                          justify-center
-                          bg-[#0d0d0d]
                           border
-                          border-stone-700
+                          border-transparent
+                          group-hover:border-amber-500/30
                           transition-all
                           duration-500
-                          group-hover:border-amber-400/80
-                          group-hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]
                         "
-                      >
+                      />
 
-                        {/* Outer Gold Ring */}
+                      {/* Inner Glow */}
 
-                        <div
-                          className="
-                            absolute
-                            inset-[-5px]
-                            rounded-full
-                            border
-                            border-transparent
-                            group-hover:border-amber-500/20
-                            transition-all
-                            duration-500
-                          "
-                        />
-
-                        {/* Inner Glow */}
-
-                        <div
-                          className="
-                            absolute
-                            inset-3
-                            rounded-full
-                            bg-amber-500/[0.02]
-                            group-hover:bg-amber-500/[0.08]
-                            blur-md
-                            transition-all
-                            duration-500
-                          "
-                        />
-
-                        <Icon
-                          className={`
-                            relative
-                            z-10
-                            text-3xl
-                            sm:text-4xl
-                            ${tech.color}
-                            transition-all
-                            duration-500
-                            group-hover:scale-110
-                          `}
-                        />
-
-                      </div>
-
-                      {/* Technology Name */}
-
-                      <span
+                      <div
                         className="
-                          mt-3
-                          text-[11px]
-                          sm:text-xs
-                          text-stone-400
-                          group-hover:text-amber-300
-                          font-medium
-                          text-center
-                          transition-colors
-                          duration-300
-                          whitespace-nowrap
+                          absolute
+                          inset-3
+                          rounded-full
+                          bg-amber-500/[0.02]
+                          group-hover:bg-amber-500/15
+                          blur-md
+                          transition-all
+                          duration-500
                         "
-                      >
-                        {tech.name}
-                      </span>
+                      />
 
-                    </motion.div>
-                  );
-                }
-              )}
+                      <Icon
+                        className={`
+                          relative
+                          z-10
+                          text-3xl
+                          sm:text-4xl
+                          ${tech.color}
+                          transition-all
+                          duration-500
+                          group-hover:scale-110
+                        `}
+                      />
+                    </div>
 
+                    {/* Technology Name */}
+
+                    <span
+                      className="
+                        mt-3
+                        text-[11px]
+                        sm:text-xs
+                        text-stone-400
+                        group-hover:text-amber-300
+                        font-medium
+                        text-center
+                        transition-colors
+                        duration-300
+                        whitespace-nowrap
+                      "
+                    >
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                );
+              })}
             </motion.div>
-
           </AnimatePresence>
 
           {/* Bottom Accent */}
@@ -1234,14 +1206,12 @@ const About = () => {
               sm:text-xs
               uppercase
               tracking-[0.25em]
-              text-stone-600
+              text-stone-500
             "
           >
             Always Learning • Always Building • Always Improving
           </p>
-
         </motion.div>
-
       </div>
     </section>
   );

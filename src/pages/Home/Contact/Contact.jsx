@@ -49,7 +49,8 @@ const Contact = () => {
     {
       icon: FaEnvelope,
       label: "Email",
-      value: "tasin220116@diit.edu.bd",
+      value: "tasin.dev07@gmail.com",
+      link: "mailto:tasin.dev07@gmail.com",
     },
     {
       icon: FaMapMarkerAlt,
@@ -60,6 +61,7 @@ const Contact = () => {
       icon: FaPhoneAlt,
       label: "Phone",
       value: "+880 1909 855 135",
+      link: "tel:+8801909855135",
     },
   ];
 
@@ -173,11 +175,15 @@ const Contact = () => {
     const templateId = import.meta.env.VITE_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_PUBLIC_KEY;
 
+    // Comprehensive template params covering standard EmailJS template keys
     const templateParams = {
       name: formData.name,
+      from_name: formData.name,
       email: formData.email,
+      from_email: formData.email,
+      reply_to: formData.email,
       subject: formData.subject,
-      to: "Tasin",
+      to_name: "Tasin",
       message: formData.message,
       year,
       month,
@@ -205,11 +211,13 @@ const Contact = () => {
         });
       })
       .catch((error) => {
-        console.error("FAILED...", error);
+        console.error("EmailJS Error Details:", error.text || error);
 
         Swal.fire({
           title: "Something Went Wrong!",
-          text: "Failed to send message. Please try again later.",
+          text: error.text
+            ? `EmailJS Error: ${error.text}`
+            : "Failed to send message. Please check your credentials or console for details.",
           icon: "error",
           background: "#121212",
           color: "#f5f5f4",
@@ -226,10 +234,8 @@ const Contact = () => {
     hidden: {
       opacity: 0,
     },
-
     visible: {
       opacity: 1,
-
       transition: {
         staggerChildren: 0.08,
       },
@@ -241,11 +247,9 @@ const Contact = () => {
       opacity: 0,
       y: 25,
     },
-
     visible: {
       opacity: 1,
       y: 0,
-
       transition: {
         duration: 0.6,
         ease: [0.22, 1, 0.36, 1],
@@ -271,10 +275,7 @@ const Contact = () => {
         font-sans
       "
     >
-      {/* =====================================================
-          BACKGROUND EFFECTS
-      ====================================================== */}
-
+      {/* BACKGROUND EFFECTS */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Main Gold Glow */}
         <motion.div
@@ -343,28 +344,13 @@ const Contact = () => {
         />
       </div>
 
-      {/* =====================================================
-          MAIN CONTAINER
-      ====================================================== */}
-
+      {/* MAIN CONTAINER */}
       <div className="relative z-10 max-w-7xl mx-auto">
-
-        {/* =================================================
-            HEADER
-        ================================================== */}
-
+        {/* HEADER */}
         <motion.div
-          initial={{
-            opacity: 0,
-            y: -30,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.7,
-          }}
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
           className="text-center mb-12 lg:mb-16"
         >
           <span
@@ -433,10 +419,7 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        {/* =================================================
-            ABOUT + CONTACT GRID
-        ================================================== */}
-
+        {/* ABOUT + CONTACT GRID */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -449,20 +432,12 @@ const Contact = () => {
             lg:gap-8
           "
         >
-
-          {/* =================================================
-              LEFT SIDE
-          ================================================== */}
-
+          {/* LEFT SIDE */}
           <div className="lg:col-span-7 space-y-6">
-
             {/* Personal Information */}
-
             <motion.div
               variants={itemVariants}
-              whileHover={{
-                y: -4,
-              }}
+              whileHover={{ y: -4 }}
               className="
                 p-6
                 sm:p-8
@@ -482,12 +457,10 @@ const Contact = () => {
                   <span className="text-xs text-[#D4AF37] uppercase tracking-widest font-bold">
                     Personal Details
                   </span>
-
                   <h2 className="text-xl sm:text-2xl font-bold text-stone-100 mt-1">
                     Get to Know Me
                   </h2>
                 </div>
-
                 <div className="hidden sm:block w-10 h-10 rounded-full border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37]">
                   ✦
                 </div>
@@ -496,26 +469,8 @@ const Contact = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {personalInfo.map((info, index) => {
                   const Icon = info.icon;
-
-                  return (
-                    <motion.div
-                      key={index}
-                      whileHover={{
-                        scale: 1.02,
-                      }}
-                      className="
-                        flex
-                        items-center
-                        gap-3
-                        p-4
-                        rounded-2xl
-                        bg-[#111111]
-                        border
-                        border-stone-800
-                        hover:border-[#D4AF37]/40
-                        transition-all
-                      "
-                    >
+                  const CardContent = (
+                    <>
                       <div
                         className="
                           w-10
@@ -533,16 +488,55 @@ const Contact = () => {
                       >
                         <Icon />
                       </div>
-
                       <div className="min-w-0">
                         <span className="block text-[10px] uppercase tracking-widest text-stone-500 font-bold">
                           {info.label}
                         </span>
-
                         <span className="block text-sm font-semibold text-stone-200 truncate">
                           {info.value}
                         </span>
                       </div>
+                    </>
+                  );
+
+                  return info.link ? (
+                    <motion.a
+                      key={index}
+                      href={info.link}
+                      whileHover={{ scale: 1.02 }}
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                        p-4
+                        rounded-2xl
+                        bg-[#111111]
+                        border
+                        border-stone-800
+                        hover:border-[#D4AF37]/40
+                        transition-all
+                      "
+                    >
+                      {CardContent}
+                    </motion.a>
+                  ) : (
+                    <motion.div
+                      key={index}
+                      whileHover={{ scale: 1.02 }}
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                        p-4
+                        rounded-2xl
+                        bg-[#111111]
+                        border
+                        border-stone-800
+                        hover:border-[#D4AF37]/40
+                        transition-all
+                      "
+                    >
+                      {CardContent}
                     </motion.div>
                   );
                 })}
@@ -550,7 +544,6 @@ const Contact = () => {
             </motion.div>
 
             {/* Focus */}
-
             <motion.div
               variants={itemVariants}
               className="
@@ -570,7 +563,6 @@ const Contact = () => {
               <span className="text-xs text-[#D4AF37] uppercase tracking-widest font-bold">
                 What I Do
               </span>
-
               <h2 className="text-xl sm:text-2xl font-bold text-stone-100 mt-1 mb-5">
                 Areas of Focus
               </h2>
@@ -579,10 +571,7 @@ const Contact = () => {
                 {focusAreas.map((area, index) => (
                   <motion.span
                     key={index}
-                    whileHover={{
-                      scale: 1.05,
-                      y: -2,
-                    }}
+                    whileHover={{ scale: 1.05, y: -2 }}
                     className="
                       px-4
                       py-2
@@ -607,7 +596,6 @@ const Contact = () => {
             </motion.div>
 
             {/* Core Technologies */}
-
             <motion.div
               variants={itemVariants}
               className="
@@ -627,7 +615,6 @@ const Contact = () => {
                 <span className="text-xs text-[#D4AF37] uppercase tracking-widest font-bold">
                   My Toolkit
                 </span>
-
                 <h2 className="text-xl sm:text-2xl font-bold text-stone-100 mt-1">
                   Core Technologies
                 </h2>
@@ -636,14 +623,10 @@ const Contact = () => {
               <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
                 {coreTech.map((tech, index) => {
                   const Icon = tech.icon;
-
                   return (
                     <motion.div
                       key={index}
-                      whileHover={{
-                        y: -6,
-                        scale: 1.04,
-                      }}
+                      whileHover={{ y: -6, scale: 1.04 }}
                       className="
                         min-h-[95px]
                         rounded-2xl
@@ -661,7 +644,6 @@ const Contact = () => {
                       "
                     >
                       <Icon className={`text-2xl ${tech.color}`} />
-
                       <span className="text-[10px] sm:text-xs font-semibold text-stone-400 text-center">
                         {tech.name}
                       </span>
@@ -672,10 +654,7 @@ const Contact = () => {
             </motion.div>
           </div>
 
-          {/* =================================================
-              RIGHT SIDE — CONTACT FORM
-          ================================================== */}
-
+          {/* RIGHT SIDE — CONTACT FORM */}
           <motion.div
             variants={itemVariants}
             className="
@@ -715,7 +694,6 @@ const Contact = () => {
               "
             >
               {/* Decorative Corner */}
-
               <div
                 className="
                   absolute
@@ -730,9 +708,7 @@ const Contact = () => {
               />
 
               <div className="relative z-10">
-
                 {/* Form Header */}
-
                 <div className="mb-7">
                   <div
                     className="
@@ -769,20 +745,13 @@ const Contact = () => {
                 </div>
 
                 {/* FORM */}
-
-                <form
-                  ref={form}
-                  onSubmit={sendEmail}
-                  className="space-y-4"
-                >
+                <form ref={form} onSubmit={sendEmail} className="space-y-4">
                   {/* Name + Email */}
-
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-stone-400 mb-2">
                         Your Name
                       </label>
-
                       <input
                         type="text"
                         name="name"
@@ -813,7 +782,6 @@ const Contact = () => {
                       <label className="block text-xs font-semibold text-stone-400 mb-2">
                         Email Address
                       </label>
-
                       <input
                         type="email"
                         name="email"
@@ -842,12 +810,10 @@ const Contact = () => {
                   </div>
 
                   {/* Subject */}
-
                   <div>
                     <label className="block text-xs font-semibold text-stone-400 mb-2">
                       Subject
                     </label>
-
                     <input
                       type="text"
                       name="subject"
@@ -875,12 +841,10 @@ const Contact = () => {
                   </div>
 
                   {/* Message */}
-
                   <div>
                     <label className="block text-xs font-semibold text-stone-400 mb-2">
                       Message
                     </label>
-
                     <textarea
                       name="message"
                       value={formData.message}
@@ -909,24 +873,11 @@ const Contact = () => {
                   </div>
 
                   {/* Submit */}
-
                   <motion.button
                     type="submit"
                     disabled={!isFormValid}
-                    whileHover={
-                      isFormValid
-                        ? {
-                            scale: 1.02,
-                          }
-                        : {}
-                    }
-                    whileTap={
-                      isFormValid
-                        ? {
-                            scale: 0.98,
-                          }
-                        : {}
-                    }
+                    whileHover={isFormValid ? { scale: 1.02 } : {}}
+                    whileTap={isFormValid ? { scale: 0.98 } : {}}
                     className={`
                       group
                       relative
@@ -945,7 +896,7 @@ const Contact = () => {
                       duration-300
                       ${
                         isFormValid
-                          ? "bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#FFD700] text-black shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30"
+                          ? "bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#FFD700] text-black shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 cursor-pointer"
                           : "bg-stone-800 text-stone-500 cursor-not-allowed"
                       }
                     `}
@@ -959,28 +910,18 @@ const Contact = () => {
                           bg-white/30
                           skew-x-[-25deg]
                         "
-                        initial={{
-                          x: "-150%",
-                        }}
-                        whileHover={{
-                          x: "400%",
-                        }}
-                        transition={{
-                          duration: 0.7,
-                        }}
+                        initial={{ x: "-150%" }}
+                        whileHover={{ x: "400%" }}
+                        transition={{ duration: 0.7 }}
                       />
                     )}
 
-                    <span className="relative z-10">
-                      Send Message
-                    </span>
-
+                    <span className="relative z-10">Send Message</span>
                     <FaArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
                   </motion.button>
                 </form>
 
                 {/* Social Links */}
-
                 <div className="mt-7 pt-6 border-t border-stone-800">
                   <p className="text-xs text-stone-500 text-center mb-4">
                     Or connect with me directly
@@ -988,7 +929,9 @@ const Contact = () => {
 
                   <div className="flex justify-center gap-3">
                     <a
-                      href="#"
+                      href="https://www.linkedin.com/in/estiak-ahamed-tasin/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="
                         w-10
                         h-10
@@ -1009,7 +952,9 @@ const Contact = () => {
                     </a>
 
                     <a
-                      href="#"
+                      href="https://github.com/FrontFury"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="
                         w-10
                         h-10
@@ -1030,7 +975,7 @@ const Contact = () => {
                     </a>
 
                     <a
-                      href="mailto:tasin220116@diit.edu.bd"
+                      href="mailto:tasin.dev07@gmail.com"
                       className="
                         w-10
                         h-10
@@ -1058,7 +1003,6 @@ const Contact = () => {
       </div>
 
       {/* Bottom Accent */}
-
       <div
         className="
           absolute

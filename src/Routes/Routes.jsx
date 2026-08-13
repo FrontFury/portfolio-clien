@@ -7,6 +7,9 @@ import About from "../pages/Home/About/About";
 import Process from "../pages/Home/Process/Process";
 import Services from "../pages/Home/Service/Services";
 import Contact from "../pages/Home/Contact/Contact";
+import Portfolio from "../pages/Home/Portfolio/Portfolio";
+import Reviews from "../pages/Home/Reviews/Reviews";
+import EduNexp from "../pages/Home/EduNexp/EduNexp";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +35,18 @@ export const router = createBrowserRouter([
         {
             path:'/contact',
             element: <Contact></Contact>
+        },
+        {
+            path:'/portfolio',
+            element: <Portfolio></Portfolio>
+        },
+        {
+            path:'/testimonials',
+            element: <Reviews></Reviews>
+        },
+        {
+            path:'/journey',
+            element: <EduNexp></EduNexp>
         },
 
     ]

@@ -29,168 +29,93 @@ import {
 
 import resumeImg from "../../../../public/Resume_Of_Tasin.pdf";
 import profile from "../../../../public/Profile.png";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const profileImage = profile;
 
   // =====================================================
-  // TECH STACK
+  // TECH STACK DATA
   // =====================================================
 
   const fullTechStack = [
     // Web Frontend
-    {
-      Icon: FaHtml5,
-      name: "HTML5",
-      color: "text-orange-500",
-    },
-    {
-      Icon: FaCss3Alt,
-      name: "CSS3",
-      color: "text-blue-500",
-    },
-    {
-      Icon: SiTailwindcss,
-      name: "Tailwind CSS",
-      color: "text-cyan-400",
-    },
-    {
-      Icon: FaBootstrap,
-      name: "Bootstrap",
-      color: "text-purple-500",
-    },
-    {
-      Icon: SiJavascript,
-      name: "JavaScript",
-      color: "text-yellow-400",
-    },
-    {
-      Icon: SiReact,
-      name: "React",
-      color: "text-sky-400",
-    },
+    { Icon: FaHtml5, name: "HTML5", color: "text-orange-500" },
+    { Icon: FaCss3Alt, name: "CSS3", color: "text-blue-500" },
+    { Icon: SiTailwindcss, name: "Tailwind CSS", color: "text-cyan-400" },
+    { Icon: FaBootstrap, name: "Bootstrap", color: "text-purple-500" },
+    { Icon: SiJavascript, name: "JavaScript", color: "text-yellow-400" },
+    { Icon: SiReact, name: "React", color: "text-sky-400" },
 
     // Backend & Database
-    {
-      Icon: SiExpress,
-      name: "Express.js",
-      color: "text-stone-300",
-    },
-    {
-      Icon: SiMongodb,
-      name: "MongoDB",
-      color: "text-green-500",
-    },
-    {
-      Icon: SiFirebase,
-      name: "Firebase",
-      color: "text-amber-500",
-    },
+    { Icon: SiExpress, name: "Express.js", color: "text-stone-300" },
+    { Icon: SiMongodb, name: "MongoDB", color: "text-green-500" },
+    { Icon: SiFirebase, name: "Firebase", color: "text-amber-500" },
 
     // Android & Native Development
-    {
-      Icon: FaAndroid,
-      name: "Android",
-      color: "text-emerald-400",
-    },
-    {
-      Icon: SiKotlin,
-      name: "Kotlin",
-      color: "text-purple-400",
-    },
-    {
-      Icon: SiSqlite,
-      name: "SQLite",
-      color: "text-sky-300",
-    },
+    { Icon: FaAndroid, name: "Android", color: "text-emerald-400" },
+    { Icon: SiKotlin, name: "Kotlin", color: "text-purple-400" },
+    { Icon: SiSqlite, name: "SQLite", color: "text-sky-300" },
 
     // Core Languages & Tools
-    {
-      Icon: SiC,
-      name: "C Language",
-      color: "text-indigo-400",
-    },
-    {
-      Icon: FaGitAlt,
-      name: "Git",
-      color: "text-orange-600",
-    },
-    {
-      Icon: SiGithub,
-      name: "GitHub",
-      color: "text-stone-200",
-    },
+    { Icon: SiC, name: "C Language", color: "text-indigo-400" },
+    { Icon: FaGitAlt, name: "Git", color: "text-orange-600" },
+    { Icon: SiGithub, name: "GitHub", color: "text-stone-200" },
   ];
 
   // =====================================================
-  // CONTAINER ANIMATION
+  // ANIMATION VARIANTS
   // =====================================================
 
   const containerVariants = {
-    hidden: {
-      opacity: 0,
-    },
-
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.1,
         delayChildren: 0.2,
       },
     },
   };
 
-  // =====================================================
-  // ITEM ANIMATION
-  // =====================================================
-
   const itemVariants = {
-    hidden: {
-      y: 20,
-      opacity: 0,
-    },
-
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-
       transition: {
         type: "spring",
         stiffness: 100,
-        damping: 15,
+        damping: 14,
       },
     },
   };
 
-  // =====================================================
-  // ICON ANIMATION
-  // =====================================================
-
-  const iconVariants = {
-    hidden: {
-      scale: 0,
-      opacity: 0,
-    },
-
+  const badgeVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
     visible: {
       scale: 1,
       opacity: 1,
-
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 10,
-      },
+      transition: { type: "spring", stiffness: 150, damping: 12 },
     },
-
     hover: {
-      scale: 1.15,
-      y: -5,
+      scale: 1.08,
+      y: -3,
+      transition: { duration: 0.2, ease: "easeOut" },
+    },
+  };
 
-      transition: {
-        duration: 0.2,
-      },
+  const socialIconVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 220, damping: 12 },
+    },
+    hover: {
+      scale: 1.2,
+      y: -4,
+      transition: { duration: 0.2 },
     },
   };
 
@@ -200,35 +125,24 @@ const HomePage = () => {
         relative
         min-h-screen
         w-full
-        bg-[#0a0a0a]
+        bg-[#080808]
         text-stone-200
         flex
         flex-col
         justify-between
         overflow-x-hidden
         font-sans
-        selection:bg-amber-900/50
+        selection:bg-amber-500/30
         selection:text-amber-200
       "
     >
       {/* =====================================================
           TOP LEFT CODE STYLE LOGO
       ====================================================== */}
-
       <motion.div
-        initial={{
-          x: -30,
-          opacity: 0,
-        }}
-        animate={{
-          x: 0,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.7,
-          delay: 0.2,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+        initial={{ x: -40, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         className="
           fixed
           top-5
@@ -240,30 +154,20 @@ const HomePage = () => {
         "
       >
         <motion.div
-          whileHover={{
-            scale: 1.05,
-          }}
-          transition={{
-            duration: 0.2,
-          }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ duration: 0.2 }}
           className="
             text-xl
             sm:text-2xl
             md:text-3xl
             font-black
             tracking-tighter
-            cursor-default
-            drop-shadow-[0_0_12px_rgba(245,158,11,0.15)]
+            cursor-pointer
+            drop-shadow-[0_0_12px_rgba(245,158,11,0.2)]
           "
         >
-          {/* Opening Bracket */}
-
-          <span className="text-amber-500/90">
-            &lt;
-          </span>
-
-          {/* Name */}
-
+          <span className="text-amber-500/90">&lt;</span>
           <span
             className="
               text-transparent
@@ -276,30 +180,17 @@ const HomePage = () => {
           >
             Tasin
           </span>
-
-          {/* Closing Bracket */}
-
-          <span className="text-amber-500/90">
-            /&gt;
-          </span>
+          <span className="text-amber-500/90">/&gt;</span>
         </motion.div>
 
         {/* Gold Underline */}
-
         <motion.div
-          initial={{
-            width: 0,
-          }}
-          animate={{
-            width: "55%",
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.7,
-          }}
+          initial={{ width: 0 }}
+          animate={{ width: "65%" }}
+          transition={{ duration: 0.9, delay: 0.8, ease: "easeOut" }}
           className="
             mt-1
-            h-[1px]
+            h-[1.5px]
             bg-gradient-to-r
             from-amber-400
             to-transparent
@@ -308,21 +199,19 @@ const HomePage = () => {
       </motion.div>
 
       {/* =====================================================
-          ANIMATED BACKGROUND
+          ANIMATED BACKGROUND & GLASS LIGHTING
       ====================================================== */}
-
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-
         {/* Main Amber Glow */}
-
         <motion.div
           animate={{
-            x: [0, 60, 0],
-            y: [0, -40, 0],
-            scale: [1, 1.2, 1],
+            x: [0, 50, 0],
+            y: [0, -30, 0],
+            scale: [1, 1.15, 1],
+            opacity: [0.15, 0.25, 0.15],
           }}
           transition={{
-            duration: 20,
+            duration: 18,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -336,26 +225,26 @@ const HomePage = () => {
             h-[300px]
             sm:h-[500px]
             lg:h-[600px]
-            bg-amber-950/20
-            rounded-2xl
+            bg-amber-600/20
+            rounded-full
             blur-[100px]
             sm:blur-[140px]
           "
         />
 
         {/* Secondary Glow */}
-
         <motion.div
           animate={{
-            x: [0, -60, 0],
-            y: [0, 40, 0],
-            scale: [1, 1.1, 1],
+            x: [0, -50, 0],
+            y: [0, 30, 0],
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.2, 0.1],
           }}
           transition={{
-            duration: 25,
+            duration: 22,
             repeat: Infinity,
             ease: "easeInOut",
-            delay: 3,
+            delay: 2,
           }}
           className="
             absolute
@@ -367,98 +256,69 @@ const HomePage = () => {
             h-[250px]
             sm:h-[400px]
             lg:h-[500px]
-            bg-yellow-950/15
-            rounded-2xl
+            bg-yellow-600/15
+            rounded-full
             blur-[100px]
             sm:blur-[140px]
           "
         />
 
-        {/* =====================================================
-            FLOATING TECHNOLOGY ICONS
-        ====================================================== */}
-
+        {/* Floating Technology Background Icons */}
         <AnimatePresence>
-          {fullTechStack.slice(0, 8).map(
-            ({ Icon, color }, index) => (
-              <motion.div
-                key={index}
-                className={`
-                  absolute
-                  ${color}
-                  opacity-[0.05]
-                  sm:opacity-[0.07]
-                  hidden
-                  sm:block
-                `}
-                style={{
-                  top: `${index * 12 + 5}%`,
-                  left:
-                    index % 2 === 0
-                      ? "3%"
-                      : "90%",
-                  fontSize: "3.5rem",
-                }}
-                initial={{
-                  opacity: 0,
-                  scale: 0,
-                }}
-                animate={{
-                  opacity: 0.07,
-                  scale: 1,
-                  y: [0, -25, 0],
-                  rotate: [0, 360],
-
-                  transition: {
-                    y: {
-                      duration: 6 + index,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    },
-
-                    rotate: {
-                      duration:
-                        25 + index * 2,
-                      repeat: Infinity,
-                      ease: "linear",
-                    },
-
-                    opacity: {
-                      duration: 1,
-                    },
-
-                    scale: {
-                      duration: 1,
-                      type: "spring",
-                    },
-                  },
-                }}
-              >
-                <Icon />
-              </motion.div>
-            )
-          )}
+          {fullTechStack.slice(0, 8).map(({ Icon, color }, index) => (
+            <motion.div
+              key={index}
+              className={`
+                absolute
+                ${color}
+                hidden
+                sm:block
+                pointer-events-none
+              `}
+              style={{
+                top: `${index * 12 + 6}%`,
+                left: index % 2 === 0 ? "4%" : "91%",
+                fontSize: "3.2rem",
+              }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{
+                opacity: [0.03, 0.08, 0.03],
+                scale: 1,
+                y: [0, -20, 0],
+                rotate: [0, 360],
+              }}
+              transition={{
+                y: {
+                  duration: 5 + index,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+                rotate: {
+                  duration: 22 + index * 2,
+                  repeat: Infinity,
+                  ease: "linear",
+                },
+                opacity: {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                },
+                scale: { duration: 0.8 },
+              }}
+            >
+              <Icon />
+            </motion.div>
+          ))}
         </AnimatePresence>
       </div>
 
       {/* =====================================================
-          NAVBAR
+          NAVBAR (GLASS)
       ====================================================== */}
-
       <motion.header
-        initial={{
-          y: -50,
-          opacity: 0,
-        }}
-        animate={{
-          y: 0,
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.6,
-          delay: 0.1,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+        initial={{ y: -60, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         className="
           relative
           z-20
@@ -473,14 +333,14 @@ const HomePage = () => {
           mx-auto
           w-full
           border-b
-          border-stone-800/50
-          bg-[#0a0a0a]/70
+          border-white/[0.08]
+          bg-[#0a0a0a]/60
           backdrop-blur-md
         "
       >
-        {/* Existing Logo */}
-
-        <div
+        {/* DEV.TASIN Brand */}
+        <motion.div
+          whileHover={{ scale: 1.02 }}
           className="
             text-xl
             sm:text-2xl
@@ -488,22 +348,13 @@ const HomePage = () => {
             tracking-tighter
             text-stone-100 m-8
             group
+            cursor-pointer
           "
         >
-          <span
-            className="
-              text-amber-400
-              group-hover:text-amber-300
-              transition-colors
-            "
-          >
+          <span className="text-amber-400 group-hover:text-amber-300 transition-colors">
             DEV
           </span>
-
-          <span className="text-stone-400">
-            .TASIN
-          </span>
-
+          <span className="text-stone-400">.TASIN</span>
           <motion.span
             className="
               inline-block
@@ -513,19 +364,12 @@ const HomePage = () => {
               bg-amber-500
               ml-1.5
             "
-            animate={{
-              opacity: [1, 0, 1],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "linear",
-            }}
+            animate={{ scale: [1, 1.4, 1], opacity: [1, 0.4, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           />
-        </div>
+        </motion.div>
 
-        {/* Availability */}
-
+        {/* Availability Badge (Glass Pill) */}
         <motion.div
           className="
             flex
@@ -536,75 +380,33 @@ const HomePage = () => {
             sm:px-4
             sm:py-1.5
             rounded-full
-            bg-stone-900
+            bg-white/[0.03]
+            backdrop-blur-md
             border
-            border-stone-800
+            border-white/[0.08]
             shadow-inner
+            cursor-pointer
           "
           whileHover={{
             scale: 1.05,
-            borderColor: "#f59e0b",
-
-            transition: {
-              duration: 0.2,
-            },
+            borderColor: "rgba(245, 158, 11, 0.4)",
+            boxShadow: "0 0 15px rgba(245, 158, 11, 0.2)",
           }}
+          whileTap={{ scale: 0.95 }}
         >
-          <span
-            className="
-              relative
-              flex
-              h-2
-              w-2
-              sm:h-2.5
-              sm:w-2.5
-            "
-          >
-            <span
-              className="
-                animate-ping
-                absolute
-                inline-flex
-                h-full
-                w-full
-                rounded-full
-                bg-emerald-400
-                opacity-75
-              "
-            />
-
-            <span
-              className="
-                relative
-                inline-flex
-                rounded-full
-                h-2
-                w-2
-                sm:h-2.5
-                sm:w-2.5
-                bg-emerald-500
-              "
-            />
+          <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-500" />
           </span>
-
-          <span
-            className="
-              text-[10px]
-              sm:text-xs
-              text-stone-300
-              font-medium
-              tracking-wide
-            "
-          >
+          <span className="text-[10px] sm:text-xs text-stone-300 font-medium tracking-wide">
             Ready for Innovations
           </span>
         </motion.div>
       </motion.header>
 
       {/* =====================================================
-          MAIN HERO
+          MAIN HERO CONTENT
       ====================================================== */}
-
       <main
         className="
           relative
@@ -636,11 +438,9 @@ const HomePage = () => {
             items-center
           "
         >
-
           {/* =================================================
-              LEFT COLUMN — PROFILE IMAGE
+              LEFT COLUMN — PROFILE IMAGE (GLASS)
           ================================================== */}
-
           <motion.div
             variants={itemVariants}
             className="
@@ -652,55 +452,47 @@ const HomePage = () => {
               sm:mb-16
               lg:mb-0
             "
-            whileHover={{
-              y: -6,
-
-              transition: {
-                duration: 0.3,
-              },
-            }}
           >
-            {/* Profile Glow */}
-
-            <div
+            {/* Animated Profile Ambient Background Glow */}
+            <motion.div
+              animate={{
+                scale: [1, 1.08, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
               className="
                 absolute
                 -inset-4
                 bg-gradient-to-b
-                from-amber-600/30
-                to-yellow-700/20
-                rounded-2xl
+                from-amber-500/30
+                to-yellow-600/20
+                rounded-3xl
                 blur-2xl
                 sm:blur-3xl
-                opacity-30
-                group-hover:opacity-50
-                transition
-                duration-700
               "
             />
 
             {/* Profile Container */}
-
             <motion.div
               className="
                 relative
                 p-2
                 sm:p-2.5
-                bg-stone-900/60
+                bg-[#101010]/60
                 backdrop-blur-xl
                 border
-                border-amber-500/20
+                border-white/[0.1]
                 rounded-2xl
-                shadow-2xl
-                shadow-amber-950/30
+                shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]
               "
-              style={{
-                boxShadow:
-                  "0 25px 50px -12px rgba(245, 158, 11, 0.15)",
-              }}
+              whileHover={{ scale: 1.02, rotate: -0.5 }}
+              transition={{ type: "spring", stiffness: 200, damping: 15 }}
             >
               {/* Profile Image */}
-
               <motion.img
                 src={profileImage}
                 alt="Estiak Ahamed Tasin"
@@ -719,26 +511,13 @@ const HomePage = () => {
                   border
                   border-[#D4AF37]/40
                   shadow-[0_0_30px_rgba(212,175,55,0.12)]
-                  group-hover:border-[#D4AF37]/70
+                  group-hover:border-[#D4AF37]/80
                   transition-all
                   duration-500
                 "
-                initial={{
-                  scale: 0.9,
-                  opacity: 0,
-                }}
-                animate={{
-                  scale: 1,
-                  opacity: 1,
-                }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.3,
-                }}
               />
 
-              {/* Pulse Border */}
-
+              {/* Dynamic Pulse Border Accent */}
               <motion.div
                 className="
                   absolute
@@ -750,20 +529,17 @@ const HomePage = () => {
                 "
                 animate={{
                   scale: [1, 1.03, 1],
-                  opacity: [0.5, 0.2, 0.5],
+                  opacity: [0.6, 0.1, 0.6],
                 }}
                 transition={{
-                  duration: 3,
+                  duration: 2.8,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
               />
             </motion.div>
 
-            {/* =================================================
-                SOCIAL ICON BAR
-            ================================================== */}
-
+            {/* Social Icons Bar Floating Below Profile (Glassmorphism) */}
             <motion.div
               className="
                 absolute
@@ -776,12 +552,12 @@ const HomePage = () => {
                 sm:gap-3
                 p-1.5
                 sm:p-2
-                bg-stone-800/80
-                backdrop-blur-lg
+                bg-[#121212]/70
+                backdrop-blur-xl
                 rounded-xl
                 border
-                border-stone-700
-                shadow-xl
+                border-white/[0.1]
+                shadow-2xl
                 z-20
               "
               variants={containerVariants}
@@ -789,23 +565,25 @@ const HomePage = () => {
               {[
                 {
                   icon: <FaLinkedinIn />,
-                  href: "#",
+                  href: "https://www.linkedin.com/in/estiak-ahamed-tasin/",
                   label: "LinkedIn",
                 },
                 {
                   icon: <FaGithub />,
-                  href: "#",
+                  href: "https://github.com/FrontFury",
                   label: "GitHub",
                 },
                 {
                   icon: <FaCode />,
-                  href: "#",
-                  label: "Dev.to",
+                  href: "https://tasin07.vercel.app/",
+                  label: "Portfolio",
                 },
               ].map((item, index) => (
                 <motion.a
                   key={index}
                   href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   title={item.label}
                   className="
                     w-9
@@ -813,19 +591,24 @@ const HomePage = () => {
                     sm:w-10
                     sm:h-10
                     rounded-lg
-                    bg-stone-700/50
+                    bg-white/[0.05]
+                    backdrop-blur-md
+                    border
+                    border-white/[0.05]
                     flex
                     items-center
                     justify-center
                     text-stone-300
                     hover:text-[#0a0a0a]
                     hover:bg-amber-400
+                    hover:border-amber-400
                     transition-all
                     duration-300
                     shadow-md
                   "
-                  variants={iconVariants}
+                  variants={socialIconVariants}
                   whileHover="hover"
+                  whileTap={{ scale: 0.9 }}
                 >
                   {item.icon}
                 </motion.a>
@@ -834,11 +617,12 @@ const HomePage = () => {
           </motion.div>
 
           {/* =================================================
-              RIGHT COLUMN — HERO CONTENT
+              RIGHT COLUMN — HERO CONTENT CARD (GLASS)
           ================================================== */}
-
           <motion.div
             variants={itemVariants}
+            whileHover={{ y: -4 }}
+            transition={{ type: "spring", stiffness: 150, damping: 15 }}
             className="
               space-y-5
               sm:space-y-6
@@ -846,56 +630,42 @@ const HomePage = () => {
               sm:p-8
               rounded-2xl
               sm:rounded-3xl
-              bg-stone-950/40
+              bg-[#101010]/60
               backdrop-blur-xl
               border
-              border-stone-800
-              shadow-xl
+              border-white/[0.08]
+              shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]
+              hover:border-amber-500/30
+              hover:bg-[#101010]/80
+              transition-all
               relative
               overflow-hidden
             "
-            style={{
-              boxShadow:
-                "0 20px 40px -15px rgba(0, 0, 0, 0.5)",
-            }}
           >
-            {/* Decorative Glow */}
-
+            {/* Top Right Decorative Ambient Light */}
             <div
               className="
                 absolute
                 top-0
                 right-0
-                w-32
-                h-32
-                bg-amber-500/5
-                rounded-2xl
+                w-36
+                h-36
+                bg-amber-500/10
+                rounded-full
                 blur-3xl
                 -translate-y-1/2
                 translate-x-1/2
+                pointer-events-none
               "
             />
 
-            {/* =================================================
-                INTRO
-            ================================================== */}
-
-            <div
-              className="
-                space-y-2.5
-                sm:space-y-3
-                text-center
-                lg:text-left
-                relative
-                z-10
-              "
-            >
-              {/* Developer Badge */}
-
+            {/* Intro Text Block */}
+            <div className="space-y-2.5 sm:space-y-3 text-center lg:text-left relative z-10">
+              {/* Role Badge (Glass) */}
               <motion.div
                 className="
                   inline-block
-                  px-3
+                  px-3.5
                   py-1
                   text-[11px]
                   sm:text-sm
@@ -903,35 +673,25 @@ const HomePage = () => {
                   tracking-wider
                   text-amber-300
                   uppercase
-                  bg-amber-950/40
+                  bg-amber-500/10
+                  backdrop-blur-md
                   rounded-full
                   border
-                  border-amber-800/60
+                  border-amber-500/30
+                  shadow-sm
                 "
                 whileHover={{
                   scale: 1.05,
+                  backgroundColor: "rgba(245, 158, 11, 0.2)",
                 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Web & Native Android Developer
               </motion.div>
 
-              {/* Heading */}
-
-              <h1
-                className="
-                  text-2xl
-                  xs:text-3xl
-                  sm:text-5xl
-                  lg:text-6xl
-                  font-extrabold
-                  tracking-tighter
-                  leading-tight
-                  text-stone-50
-                "
-              >
-                Hello, I'm
-                <br />
-
+              {/* Main Heading */}
+              <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tighter leading-tight text-stone-50">
+                Hello, I'm <br />
                 <motion.span
                   className="text-amber-400 inline-block"
                   style={{
@@ -942,14 +702,10 @@ const HomePage = () => {
                     WebkitTextFillColor: "transparent",
                   }}
                   animate={{
-                    backgroundPosition: [
-                      "0%",
-                      "100%",
-                      "0%",
-                    ],
+                    backgroundPosition: ["0%", "200%"],
                   }}
                   transition={{
-                    duration: 10,
+                    duration: 8,
                     repeat: Infinity,
                     ease: "linear",
                   }}
@@ -958,23 +714,11 @@ const HomePage = () => {
                 </motion.span>
               </h1>
 
-              {/* Description */}
-
-              <p
-                className="
-                  text-sm
-                  sm:text-lg
-                  text-stone-300
-                  max-w-2xl
-                  leading-relaxed
-                  mx-auto
-                  lg:mx-0
-                "
-              >
-                I’m an enthusiastic developer
-                transforming concepts into seamless
-                applications across Web & Android
-                platforms. Combining{" "}
+              {/* Bio Description */}
+              <p className="text-sm sm:text-lg text-stone-300 max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                I’m an enthusiastic developer transforming concepts into
+                seamless applications across Web & Android platforms.
+                Combining{" "}
                 <span className="text-amber-300 font-semibold">
                   Web Craftsmanship
                 </span>{" "}
@@ -982,36 +726,16 @@ const HomePage = () => {
                 <span className="text-emerald-400 font-semibold">
                   Kotlin & SQLite Native Solutions
                 </span>{" "}
-                to build performance-driven digital
-                products.
+                to build performance-driven digital products.
               </p>
             </div>
 
-            {/* =================================================
-                TECH STACK
-            ================================================== */}
-
+            {/* Tech Stack Grid Section */}
             <motion.div
-              className="
-                space-y-2.5
-                sm:space-y-3
-                relative
-                z-10
-              "
+              className="space-y-2.5 sm:space-y-3 relative z-10"
               variants={containerVariants}
             >
-              <h3
-                className="
-                  text-[10px]
-                  sm:text-xs
-                  font-bold
-                  tracking-widest
-                  text-stone-500
-                  uppercase
-                  text-center
-                  lg:text-left
-                "
-              >
+              <h3 className="text-[10px] sm:text-xs font-bold tracking-widest text-stone-400 uppercase text-center lg:text-left">
                 Tech Stack & Ecosystem
               </h3>
 
@@ -1022,7 +746,7 @@ const HomePage = () => {
                   justify-center
                   lg:justify-start
                   gap-2
-                  sm:gap-3
+                  sm:gap-2.5
                   max-h-[140px]
                   sm:max-h-[180px]
                   overflow-y-auto
@@ -1030,65 +754,45 @@ const HomePage = () => {
                   custom-scrollbar
                 "
               >
-                {fullTechStack.map(
-                  ({ Icon, name, color }, index) => (
-                    <motion.div
-                      key={index}
-                      className={`
-                        flex
-                        items-center
-                        gap-1.5
-                        sm:gap-2
-                        px-2.5
-                        sm:px-3
-                        py-1
-                        sm:py-1.5
-                        rounded-lg
-                        bg-stone-900/90
-                        border
-                        border-stone-800
-                        ${color}
-                        hover:border-amber-500/50
-                        hover:bg-stone-800
-                        transition-all
-                        shadow-sm
-                        group
-                      `}
-                      variants={iconVariants}
-                      whileHover="hover"
-                      title={name}
-                    >
-                      <Icon
-                        className="
-                          w-4
-                          h-4
-                          sm:w-5
-                          sm:h-5
-                        "
-                      />
-
-                      <span
-                        className="
-                          text-[11px]
-                          sm:text-xs
-                          font-medium
-                          text-stone-200
-                          group-hover:text-white
-                          transition-colors
-                        "
-                      >
-                        {name}
-                      </span>
-                    </motion.div>
-                  )
-                )}
+                {fullTechStack.map(({ Icon, name, color }, index) => (
+                  <motion.div
+                    key={index}
+                    className={`
+                      flex
+                      items-center
+                      gap-1.5
+                      sm:gap-2
+                      px-2.5
+                      sm:px-3
+                      py-1
+                      sm:py-1.5
+                      rounded-lg
+                      bg-white/[0.03]
+                      backdrop-blur-md
+                      border
+                      border-white/[0.08]
+                      ${color}
+                      hover:border-amber-500/50
+                      hover:bg-amber-500/10
+                      transition-all
+                      shadow-sm
+                      cursor-default
+                    `}
+                    variants={badgeVariants}
+                    whileHover="hover"
+                    whileTap={{ scale: 0.95 }}
+                    title={name}
+                  >
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span className="text-[11px] sm:text-xs font-medium text-stone-200 group-hover:text-white transition-colors">
+                      {name}
+                    </span>
+                  </motion.div>
+                ))}
               </div>
             </motion.div>
 
-            {/* =================================================
-                CTA BUTTONS
-            ================================================== */}
-
+            {/* CTA Action Buttons */}
             <motion.div
               className="
                 flex
@@ -1105,8 +809,7 @@ const HomePage = () => {
               "
               variants={itemVariants}
             >
-              {/* Explore Projects */}
-
+              {/* Explore Projects Button */}
               <motion.button
                 className="
                   group
@@ -1122,7 +825,10 @@ const HomePage = () => {
                   sm:text-base
                   font-extrabold
                   text-[#0a0a0a]
-                  bg-amber-400
+                  bg-gradient-to-r
+                  from-amber-300
+                  via-yellow-400
+                  to-amber-500
                   rounded-xl
                   transition-all
                   duration-300
@@ -1131,54 +837,36 @@ const HomePage = () => {
                   w-full
                   sm:w-auto
                   justify-center
+                  cursor-pointer
                 "
                 whileHover={{
-                  scale: 1.02,
-                  boxShadow:
-                    "0 10px 25px -5px rgba(245, 158, 11, 0.4)",
+                  scale: 1.03,
+                  boxShadow: "0 10px 25px -5px rgba(245, 158, 11, 0.4)",
                 }}
-                whileTap={{
-                  scale: 0.98,
-                }}
+                whileTap={{ scale: 0.97 }}
               >
-                {/* Shine Effect */}
-
+                {/* Metallic Shine Animation */}
                 <motion.div
                   className="
                     absolute
                     inset-0
                     w-1/2
                     h-full
-                    bg-white/20
+                    bg-white/30
                     skew-x-[-30deg]
                   "
-                  initial={{
-                    x: "-150%",
-                  }}
-                  whileHover={{
-                    x: "250%",
-                  }}
-                  transition={{
-                    duration: 0.6,
-                    ease: "easeOut",
-                  }}
+                  initial={{ x: "-150%" }}
+                  whileHover={{ x: "250%" }}
+                  transition={{ duration: 0.7, ease: "easeOut" }}
                 />
 
-                Explore Projects
-
-                <FaArrowRight
-                  className="
-                    w-4
-                    h-4
-                    transition-transform
-                    duration-300
-                    group-hover:translate-x-1
-                  "
-                />
+                <span>
+                  <Link to="/portfolio">Explore Projects</Link>
+                </span>
+                <FaArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
               </motion.button>
 
-              {/* Download Resume */}
-
+              {/* Download Resume Link Button (Glass Button) */}
               <motion.a
                 href={resumeImg}
                 download="Tasin_Resume.pdf"
@@ -1195,36 +883,33 @@ const HomePage = () => {
                   sm:text-base
                   font-semibold
                   text-stone-100
-                  bg-stone-800/40
+                  bg-white/[0.04]
+                  backdrop-blur-md
                   rounded-xl
                   border
-                  border-stone-700
-                  backdrop-blur-sm
+                  border-white/[0.1]
                   transition-all
                   duration-300
                   hover:border-amber-400
-                  hover:bg-stone-800/60
+                  hover:bg-amber-500/10
                   shadow-md
                   w-full
                   sm:w-auto
                   justify-center
+                  cursor-pointer
                 "
+                whileHover={{
+                  scale: 1.03,
+                  boxShadow: "0 8px 20px -5px rgba(0, 0, 0, 0.5)",
+                }}
+                whileTap={{ scale: 0.97 }}
               >
-                <FaFileDownload
-                  className="
-                    w-4
-                    h-4
-                    text-amber-400
-                    group-hover:text-amber-300
-                  "
-                />
-
-                Download Resume
+                <FaFileDownload className="w-4 h-4 text-amber-400 group-hover:text-amber-300 transition-colors" />
+                <span>Download Resume</span>
               </motion.a>
             </motion.div>
 
-            {/* Top Border Accent */}
-
+            {/* Card Border Highlight Accent */}
             <div
               className="
                 absolute
@@ -1232,7 +917,7 @@ const HomePage = () => {
                 rounded-2xl
                 sm:rounded-3xl
                 border-t
-                border-amber-400/10
+                border-white/[0.1]
                 pointer-events-none
               "
             />
